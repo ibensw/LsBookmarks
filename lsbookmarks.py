@@ -24,7 +24,7 @@ class LsBookmarksCommand(sublime_plugin.WindowCommand):
             sublime.status_message("No bookmarks found")
 
     def go_there(self, i):
-        if i >= 0 and i < len(self.locations):
+        if i < 0 or i >= len(self.locations):
             return
         view, region = self.locations[i]
         sublime.active_window().focus_view(view)
