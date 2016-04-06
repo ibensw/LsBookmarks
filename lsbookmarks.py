@@ -1,5 +1,5 @@
 import sublime, sublime_plugin
-import os
+import os, re
 
 class LsBookmarksCommand(sublime_plugin.WindowCommand):
     locations=[]
@@ -15,7 +15,7 @@ class LsBookmarksCommand(sublime_plugin.WindowCommand):
                 prefix=os.path.basename(view.file_name())+":"
             for region in view.get_regions("bookmarks"):
                 row,_=view.rowcol(region.a)
-                line=view.substr(view.line(region)).strip()
+                line=re.sub('\s+', ' ', view.substr(view.line(region))).strip()
                 items.append(prefix+str(row+1)+": "+line)
                 self.locations.append((view, region))
         if len(items) > 0:
