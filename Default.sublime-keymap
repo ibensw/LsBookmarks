@@ -1,0 +1,6 @@
+[
+    {
+        "command": "ls_bookmarks", 
+        "keys": ["alt+f2"],
+    }
+]
