@@ -29,3 +29,5 @@ class LsBookmarksCommand(sublime_plugin.WindowCommand):
         view, region = self.locations[i]
         sublime.active_window().focus_view(view)
         view.show_at_center(region)
+        view.sel().clear()
+        view.sel().add(region)
