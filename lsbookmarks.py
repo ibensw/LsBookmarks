@@ -31,3 +31,9 @@ class LsBookmarksCommand(sublime_plugin.WindowCommand):
         view.show_at_center(region)
         view.sel().clear()
         view.sel().add(region)
+
+class LsBookmarksClearCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        if sublime.yes_no_cancel_dialog("Clear all bookmarks?") == sublime.DIALOG_YES:
+            for view in sublime.active_window().views():
+                view.erase_regions("bookmarks");
