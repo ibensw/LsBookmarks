@@ -1,7 +1,7 @@
 import sublime, sublime_plugin
 import os, re
 
-class LsBookmarksCommand(sublime_plugin.WindowCommand):
+class ViewBookmarksCommand(sublime_plugin.WindowCommand):
     locations=[]
 
     def run(self):
@@ -21,7 +21,7 @@ class LsBookmarksCommand(sublime_plugin.WindowCommand):
         if len(items) > 0:
             sublime.active_window().show_quick_panel(items, self.go_there, sublime.MONOSPACE_FONT)
         else:
-            sublime.status_message("No bookmarks found")
+            sublime.active_window().show_quick_panel(["No bookmarks found"], None, sublime.MONOSPACE_FONT)
 
     def go_there(self, i):
         if i < 0 or i >= len(self.locations):
@@ -31,9 +31,3 @@ class LsBookmarksCommand(sublime_plugin.WindowCommand):
         view.show_at_center(region)
         view.sel().clear()
         view.sel().add(region)
-
-class LsBookmarksClearCommand(sublime_plugin.WindowCommand):
-    def run(self):
-        if sublime.yes_no_cancel_dialog("Clear all bookmarks?") == sublime.DIALOG_YES:
-            for view in sublime.active_window().views():
-                view.erase_regions("bookmarks");
