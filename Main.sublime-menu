@@ -1,0 +1,18 @@
+[
+{
+    "id": "goto",
+    "children":
+    [
+        {
+            "id": "bookmarks",
+            "children":
+            [
+                {
+                    "command": "view_bookmarks",
+                    "caption": "View All Bookmarks"
+                }
+            ]
+        },
+    ]
+}
+]
