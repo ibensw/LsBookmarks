@@ -1,6 +1,6 @@
 # Sublime ViewBookmarks
 
-A simple plugin that adds 'view all boookmarks' functionality—and the ability to jump to the listed bookmarks—to the `Goto > Bookmarks` menu and the Command Pallet.
+A simple plugin that adds 'view all bookmarks' functionality—and the ability to jump to the listed bookmarks—to the `Goto > Bookmarks` menu and the Command Pallet.
 
 The functionality integrates seamlessly with the native bookmark features.
 
